@@ -97,6 +97,9 @@ class RequestClient(HTTPClient):
                 method, url, headers=headers, params=params, data=data, timeout=timeout, proxies=proxies, verify=verify
             )
 
+            log.info("hi i'm in http client!")
+            raise requests.ConnectionError("this is raiya's test connection error")
+
             result.raise_for_status()
 
         except requests.exceptions.ProxyError as e:
